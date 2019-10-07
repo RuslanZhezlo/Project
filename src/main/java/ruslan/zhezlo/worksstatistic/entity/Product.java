@@ -21,12 +21,29 @@ public class Product {
 
     private String name;
 
-    private String unit;
+    private String unitsOfMeasurement;
 
     private Long quantity;
 
     @OneToMany (mappedBy = "product")
     private List<File>files;
+
+    @ManyToOne
+    private Division division;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Client> clients;
+
+    @ManyToMany(mappedBy = "location")
+    private List<Location> locations;
+
+    @ManyToMany
+    private List<Date> dates;
+
+    @ManyToMany(mappedBy = "inspector")
+    private List<Inspector> inspectors;
+
+
 
 
 }

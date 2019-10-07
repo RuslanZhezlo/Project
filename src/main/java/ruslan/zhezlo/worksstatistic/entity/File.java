@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -36,13 +37,14 @@ public class File {
     private Product product;
 
     @ManyToMany
-    private Location location;
+    private List<Location> locatoin;
 
-    @ManyToOne
-    private Date date;
 
-    @ManyToOne
-    private Inspector inspector;
+    @ManyToMany
+    private List<Date> dates;
+
+    @ManyToMany (mappedBy = "files")
+    private List<Inspector> inspectors;
 
 }
 

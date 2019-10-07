@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -20,4 +18,27 @@ public class Date {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String date;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<File> files;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<Division> divisions;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<Client> clients;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<Product> products;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<Location> locations;
+
+    @ManyToMany (mappedBy = "dates")
+    private List<Inspector> inspectors;
+
+
+
 }

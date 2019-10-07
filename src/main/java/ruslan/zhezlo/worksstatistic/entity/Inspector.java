@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -20,4 +18,32 @@ public class Inspector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
+    private String surname;
+    private String login;
+    private String password;
+
+    @ManyToMany
+    private List<File> files;
+
+    @ManyToMany
+    private List<Division> divisions;
+
+    @ManyToMany
+    private List<Client> clients;
+
+    @ManyToMany
+    private List<Product> products;
+
+    @ManyToMany
+    private List<Location> locations;
+
+    @ManyToMany
+    private List<Date> dates;
+
+    @OneToOne
+    private Travel travel;
+
+
 }

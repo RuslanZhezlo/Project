@@ -35,13 +35,13 @@ public class Division {
     @OneToMany(mappedBy = "Division")
     private List<Product> products;
 
-    @OneToMany(mappedBy = "Division")
+    @OneToMany(mappedBy = "Divisions")
     private List<Location> locations;
 
     @ManyToMany
     private Date date;
 
-    @ManyToMany(mappedBy = "Division")
+    @ManyToMany(mappedBy = "Divisions")
     private Inspector inspector;
 
 

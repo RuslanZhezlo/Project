@@ -28,22 +28,22 @@ public class Client {
     private String name;
 
 
-    @OneToMany (mappedBy = "Client")
+    @OneToMany (mappedBy = "client")
     private List<File> files;
 
     @ManyToOne
     private Division division;
 
     @ManyToMany
-    private Product product;
+    private List<Product> product;
 
     @ManyToMany
     private Location location;
 
     @ManyToMany
-    private Date date;
+    private List<Date> dates;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "clients")
     private Inspector inspector;
 
 
