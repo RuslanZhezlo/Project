@@ -37,7 +37,7 @@ public class File {
     private Product product;
 
     @ManyToMany
-    private List<Location> locatoin;
+    private List<Location> locations;
 
 
     @ManyToMany

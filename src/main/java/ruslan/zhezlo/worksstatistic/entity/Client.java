@@ -35,16 +35,16 @@ public class Client {
     private Division division;
 
     @ManyToMany
-    private List<Product> product;
+    private List<Product> products;
 
     @ManyToMany
-    private Location location;
+    private List<Location> locations;
 
     @ManyToMany
     private List<Date> dates;
 
-    @ManyToMany (mappedBy = "clients")
-    private Inspector inspector;
+    @ManyToMany
+    private List<Inspector> inspectors;
 
 
 

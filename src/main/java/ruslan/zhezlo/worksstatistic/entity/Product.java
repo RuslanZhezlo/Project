@@ -26,7 +26,7 @@ public class Product {
     private Long quantity;
 
     @OneToMany (mappedBy = "product")
-    private List<File>files;
+    private List<File> files;
 
     @ManyToOne
     private Division division;
@@ -34,13 +34,13 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<Client> clients;
 
-    @ManyToMany(mappedBy = "location")
+    @ManyToMany(mappedBy = "products")
     private List<Location> locations;
 
     @ManyToMany
     private List<Date> dates;
 
-    @ManyToMany(mappedBy = "inspector")
+    @ManyToMany
     private List<Inspector> inspectors;
 
 

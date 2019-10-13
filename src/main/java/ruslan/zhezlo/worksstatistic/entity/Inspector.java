@@ -27,13 +27,13 @@ public class Inspector {
     @ManyToMany
     private List<File> files;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "inspectors")
     private List<Division> divisions;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "inspectors")
     private List<Client> clients;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "inspectors")
     private List<Product> products;
 
     @ManyToMany

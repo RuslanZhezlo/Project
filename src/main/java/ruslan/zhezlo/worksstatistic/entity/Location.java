@@ -24,22 +24,22 @@ public class Location {
     private String locality;
     private String region;
 
-    @ManyToMany(mappedBy = "location")
+    @ManyToMany(mappedBy = "locations")
     private List<File> files;
 
     @ManyToOne
-    private List<Division> divisions;
+    private Division division;
 
-    @ManyToMany (mappedBy = "location")
+    @ManyToMany (mappedBy = "locations")
     private List<Client> clients;
 
     @ManyToMany
-    private Product product;
+    private List<Product> products;
 
     @ManyToMany
     private List<Date> dates;
 
-    @ManyToMany(mappedBy = "inspector")
+    @ManyToMany(mappedBy = "locations")
     private List<Inspector> inspectors;
 
 
