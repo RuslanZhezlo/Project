@@ -1,16 +1,18 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Location {
@@ -25,28 +27,22 @@ public class Location {
     private String region;
 
     @ManyToMany(mappedBy = "locations")
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     @ManyToOne
     private Division division;
 
     @ManyToMany (mappedBy = "locations")
-    private List<Client> clients;
+    private List<Client> clients = new ArrayList<>();
 
     @ManyToMany
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     @ManyToMany
-    private List<Date> dates;
+    private List<Date> dates = new ArrayList<>();
 
     @ManyToMany(mappedBy = "locations")
-    private List<Inspector> inspectors;
-
-
-
-
-
-
+    private List<Inspector> inspectors = new ArrayList<>();
 
 
 }

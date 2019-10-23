@@ -1,16 +1,18 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Product {
@@ -26,24 +28,22 @@ public class Product {
     private Long quantity;
 
     @OneToMany (mappedBy = "product")
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     @ManyToOne
     private Division division;
 
     @ManyToMany(mappedBy = "products")
-    private List<Client> clients;
+    private List<Client> clients = new ArrayList<>();
 
     @ManyToMany(mappedBy = "products")
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
     @ManyToMany
-    private List<Date> dates;
+    private List<Date> dates = new ArrayList<>();
 
     @ManyToMany
-    private List<Inspector> inspectors;
-
-
+    private List<Inspector> inspectors = new ArrayList<>();
 
 
 }

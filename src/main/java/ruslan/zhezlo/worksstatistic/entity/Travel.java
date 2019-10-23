@@ -1,16 +1,16 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Travel {
@@ -21,15 +21,15 @@ public class Travel {
 
     private String date;
     private Long daily;
-    private Long dayHour;
-    private Long nightHour;
+    private Long hourDay;
+    private Long hourNight;
     private Long live;
     private String address;
     private Long kilometers;
     private String route;
 
 
-    @OneToOne (mappedBy = "travel")
+    @ManyToOne
     private Inspector inspector;
 
 

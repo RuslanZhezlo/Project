@@ -1,8 +1,6 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Division {
@@ -28,21 +30,21 @@ public class Division {
 
 
     @OneToMany(mappedBy = "division")
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     @OneToMany(mappedBy = "division")
-    private List<Client> clients;
+    private List<Client> clients = new ArrayList<>();
 
     @OneToMany(mappedBy = "division")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     @OneToMany(mappedBy = "division")
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
     @ManyToMany
-    private List<Date> dates;
+    private List<Date> dates = new ArrayList<>();
 
     @ManyToMany
-    private List<Inspector> inspectors;
+    private List<Inspector> inspectors = new ArrayList<>();
 
 }

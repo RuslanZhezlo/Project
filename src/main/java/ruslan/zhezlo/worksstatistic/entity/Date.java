@@ -1,16 +1,18 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Date {
@@ -22,23 +24,21 @@ public class Date {
     private String date;
 
     @ManyToMany (mappedBy = "dates")
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     @ManyToMany (mappedBy = "dates")
-    private List<Division> divisions;
+    private List<Division> divisions = new ArrayList<>();
 
     @ManyToMany (mappedBy = "dates")
-    private List<Client> clients;
+    private List<Client> clients = new ArrayList<>();
 
     @ManyToMany (mappedBy = "dates")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     @ManyToMany (mappedBy = "dates")
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
     @ManyToMany (mappedBy = "dates")
-    private List<Inspector> inspectors;
-
-
+    private List<Inspector> inspectors = new ArrayList<>();
 
 }

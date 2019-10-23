@@ -1,9 +1,7 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,11 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class Client {
@@ -29,22 +31,22 @@ public class Client {
 
 
     @OneToMany (mappedBy = "client")
-    private List<File> files;
+    private List<File> files = new ArrayList<>();
 
     @ManyToOne
     private Division division;
 
     @ManyToMany
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     @ManyToMany
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
     @ManyToMany
-    private List<Date> dates;
+    private List<Date> dates = new ArrayList<>();
 
     @ManyToMany
-    private List<Inspector> inspectors;
+    private List<Inspector> inspectors = new ArrayList<>();
 
 
 

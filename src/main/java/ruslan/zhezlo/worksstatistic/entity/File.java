@@ -1,8 +1,6 @@
 package ruslan.zhezlo.worksstatistic.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+
 
 @Entity
 public class File {
@@ -37,14 +39,14 @@ public class File {
     private Product product;
 
     @ManyToMany
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
 
     @ManyToMany
-    private List<Date> dates;
+    private List<Date> dates = new ArrayList<>();
 
     @ManyToMany (mappedBy = "files")
-    private List<Inspector> inspectors;
+    private List<Inspector> inspectors = new ArrayList<>();
 
 }
 
