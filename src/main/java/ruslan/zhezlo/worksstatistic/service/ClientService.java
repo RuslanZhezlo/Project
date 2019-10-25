@@ -27,6 +27,11 @@ public class ClientService {
        return all.stream().map(this::clientToClientResponse).collect(Collectors.toList());
    }
 
+   public Client findOne(Long id){
+       return clientRepository.findById(id).
+               orElseThrow(()->new IllegalArgumentException("Client with id " + id + "not exists"));
+   }
+
    private ClientResponse clientToClientResponse (Client client){
        ClientResponse cr = new ClientResponse();
        cr.setName(client.getName());

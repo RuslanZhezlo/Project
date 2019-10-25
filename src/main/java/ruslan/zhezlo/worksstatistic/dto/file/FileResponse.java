@@ -10,5 +10,6 @@ public class FileResponse {
 
     private String number;
     private Long id;
+    private String station;
 
 }
